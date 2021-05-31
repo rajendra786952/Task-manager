@@ -1,0 +1,66 @@
+<div   class="mb-5" style="overflow:auto;position: relative;z-index: 1;">
+    <div class="mx-4 mt-4" >
+        <mat-card class="example-card">
+            <mat-card-header class="justify-content-between">
+              <mat-card-title>Task</mat-card-title>
+              
+                    <button mat-raised-button color="primary" (click)="createTask()">Create Task</button>
+                
+            </mat-card-header>
+            <mat-card-content>
+                <div class="my-4">
+                  <div class="mb-2">
+                    <mat-form-field class="w-50">
+                        <mat-label>Filter</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="personal" #input>
+                      </mat-form-field>
+                  </div>
+                    <table mat-table [dataSource]="dataSource"  matSort class="mat-elevation-z8 w-100">
+                        <ng-container matColumnDef="no">
+                          <th mat-header-cell *matHeaderCellDef> No. </th>
+                          <td mat-cell *matCellDef="let element;let i=index;"> {{i+1}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="task">
+                          <th mat-header-cell *matHeaderCellDef>Task</th>
+                          <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="type">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+                            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                          </ng-container>
+                        <ng-container matColumnDef="creator">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Creator</th>
+                          <td mat-cell *matCellDef="let element"> {{element.creator}} </td>
+                        </ng-container>
+                      
+                        <ng-container matColumnDef="start_date">
+                          <th mat-header-cell *matHeaderCellDef >Start Date</th>
+                          <td mat-cell *matCellDef="let element"> {{element.start}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="end_date">
+                            <th mat-header-cell *matHeaderCellDef>End Date</th>
+                            <td mat-cell *matCellDef="let element"> {{element.end }} </td>
+                          </ng-container>
+                          <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef>Status</th>
+                            <td mat-cell *matCellDef="let element"> {{element.isCompleted ? 'Completed':'Incompleted'}} </td>
+                          </ng-container>
+                          <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>Action</th>
+                            <td mat-cell *matCellDef="let element;let i=index">
+                                <div class="d-flex">
+                                    <div><input type="checkbox"  [checked]="element.isCompleted" style="height: 21px;" (change)="setstatus($event,i)"></div>
+                                   <!--- <div class="ml-2"><i class="fa fa-trash text-danger" aria-hidden="true"></i></div>-->
+                                </div>
+                                                              
+                              </td>
+                          </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+                      </div>
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>    
