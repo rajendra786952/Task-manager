@@ -25,3 +25,6 @@ mat-toolbar{
 button{
     outline: none!important;
 }
+button:hover,:focus,:active{
+    outline: none!important;
+}

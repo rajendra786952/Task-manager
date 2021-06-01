@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { TaskService } from './services/task.service';
 
 @Component({
@@ -12,10 +13,18 @@ export class AppComponent implements OnInit {
   show=false;
   mode:any="side";
   open=true;
-  constructor(public task_service:TaskService,public breakpointObserver: BreakpointObserver){
+  hide=true;
+  constructor(public task_service:TaskService,public breakpointObserver: BreakpointObserver,private spinner: NgxSpinnerService){
 
   }
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+      this.hide=false;
+    }, 5000);
+  
     this.breakpointObserver
     .observe(['(min-width: 1000px)'])
     .subscribe((state: BreakpointState) => {

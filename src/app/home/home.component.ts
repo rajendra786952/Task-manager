@@ -35,6 +35,11 @@ export class HomeComponent implements OnInit {
     this.task_service.gettask().subscribe((res:any)=>{
       if(res){
       console.log(res);
+      res.sort((a:any,b:any)=>{
+        var dateA = new Date(a.start).getTime();
+        var dateB = new Date(b.start).getTime();
+        return dateA > dateB ? 1 : -1;  
+      });
       res.map((x:task)=>{
         if(x.isGlobal && x.isLeader){
           this.global.push(x);

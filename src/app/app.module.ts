@@ -19,6 +19,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import { CalenderComponent } from './calender/calender.component'; // a plugin
+import { NgxSpinnerModule } from "ngx-spinner";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 FullCalendarModule.registerPlugins([ 
   dayGridPlugin,
@@ -46,6 +48,8 @@ FullCalendarModule.registerPlugins([
     FullCalendarModule,
     ReactiveFormsModule,
     MatDialogModule,
+    NgxSpinnerModule,
+    MatProgressSpinnerModule
   ],
   providers: [DatePipe, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent],

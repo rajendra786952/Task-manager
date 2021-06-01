@@ -1,4 +1,9 @@
-<div>
+
+<ngx-spinner bdColor="rgb(63, 81, 181)" color="white"
+  template="<div style='font-size:20px;margin-top:10px;color:white;'><img src='assets/white.png' class='mr-2'>TaskManager
+  </div><div class='text-center'><img src='assets/loader.gif' style='width:80px;height:80px;margin-left:50px;margin-top: -15px;'></div>"></ngx-spinner>
+
+<div *ngIf="!hide">
 <div style="width: 100%;">
   <mat-toolbar >
    <div class="d-flex justify-content-between w-100">

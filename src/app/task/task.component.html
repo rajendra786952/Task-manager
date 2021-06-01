@@ -8,7 +8,7 @@
                 
             </mat-card-header>
             <mat-card-content>
-                <div class="my-4">
+                <div class="my-4 overflow">
                   <div class="mb-2">
                     <mat-form-field class="w-50">
                         <mat-label>Filter</mat-label>
@@ -49,7 +49,7 @@
                             <th mat-header-cell *matHeaderCellDef>Action</th>
                             <td mat-cell *matCellDef="let element;let i=index">
                                 <div class="d-flex">
-                                    <div><input type="checkbox"  [checked]="element.isCompleted" style="height: 21px;" (change)="setstatus($event,i)"></div>
+                                    <input type="checkbox"  [checked]="element.isCompleted" style="height: 21px;" (change)="setstatus($event,i)">
                                    <!--- <div class="ml-2"><i class="fa fa-trash text-danger" aria-hidden="true"></i></div>-->
                                 </div>
                                                               

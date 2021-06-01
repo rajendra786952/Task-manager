@@ -5,7 +5,7 @@
           <mat-card-title>Global Task</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="my-2">
+            <div class="my-2 overflow" >
                 <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8 w-100">
                     <ng-container matColumnDef="no">
                       <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -48,7 +48,7 @@
           <mat-card-title>Personal Task</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="my-2">
+            <div class="my-2 overflow">
                 <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8 w-100">
                     <ng-container matColumnDef="no">
                       <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -86,7 +86,7 @@
 </div>
 
 <div class="mx-4 my-4 ">
-    <mat-card class="example-card">
+    <mat-card class="example-card overflow" >
         <mat-card-header>
           <mat-card-title>Team Leader Task</mat-card-title>
         </mat-card-header>
